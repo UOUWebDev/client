@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 import { PostType } from "../../type/dataType";
 import { useRecoilState } from "recoil";
 import { scrolledState } from "../../recoil/store";
-
 const Wrap = styled.div`
   position: relative;
   display: flex;
@@ -165,7 +164,6 @@ export default function MainPost({
     setSliderCount((prev) => prev - 1);
   };
 
-  
   const handleSliderToRight = (): void => {
     setSliderCount((prev) => prev + 1);
   };

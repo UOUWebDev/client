@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
-import addImg from '../img/addimg.svg';
+import { HiPhotograph } from "react-icons/hi";
+import { useState } from "react";
+import addImg from "../img/addimg.svg";
 
 const Wrap = styled.div`
   display: flex;
@@ -121,23 +122,19 @@ function PostPage(): JSX.Element {
       const imgUrl = URL.createObjectURL(file[i]);
       setImg((prev) => [...prev, imgUrl]);
     }
-  };
 
-  // 미리보기 이미지 클릭시 삭제
-  const onRemove = (event: any) => {
-    setImg(img.filter((img) => img !== event.target.currentSrc));
-  };
-
-  // 이미지 최대 개수 4개로 제한
-  useEffect(() => {
+    // 이미지 최대 개수 4개로 제한
     if (img.length > 4) {
       alert("이미지는 최대 4개까지 첨부 가능합니다.");
       setImg([]);
     }
-  })
+  };
 
-  // console.log(img.length)
-  
+  // 문제있음: 한꺼번에 다 사라짐
+  const onRemove = (event: any) => {
+    setImg(img.filter((img) => img !== event.target.currentSrc));
+  };
+
   return (
     <Wrap>
       <Cont>
